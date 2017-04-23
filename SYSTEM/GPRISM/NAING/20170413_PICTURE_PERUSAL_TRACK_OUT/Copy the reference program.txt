@@ -1,0 +1,15 @@
+Program name: Next Step Transfer
+Filename: PS00S01000400
+
+Create a new file for Picture Perusal Track Out
+Filename: PS00S01002490
+Done for:
+	cgi-bin, Scr, Lang/en
+
+===
+Vim
+===
+
+vim Lang/en/PS00S01002490.php
+vim cgi-bin/PS00S01002490.php
+vim Scr/PS00S01002490.php

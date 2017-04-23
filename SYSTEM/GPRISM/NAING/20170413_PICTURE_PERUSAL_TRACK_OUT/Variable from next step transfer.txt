@@ -1,0 +1,9 @@
+s_io_blc_nm = Step Name
+s_prd_nm = Type Name
+s_pkg_nm = Package Name
+s_lot_no_str = Diffusion Lot No
+
+$gw_scr['s_io_blc_nm']
+$gw_scr['s_prd_nm']
+$gw_scr['s_pkg_nm']
+$gw_scr['s_lot_no_str']

@@ -1,0 +1,57 @@
+Comment: Line 1420
+if(!isset($g_mode)){
+
+Comment: Line 201
+function check_input(){
+
+Comment: Line 1321
+function main_input_fuc($clr_flg = false)
+
+Comment: Line 1341
+function main_read_fuc()
+
+Comment: Line 1363
+function main_update_fuc()
+
+Comment: Line 1384
+function scr_initialize()
+
+Add this:
+
+$w_func = "main_md" . $g_mode;
+if(function_exists($w_func)){
+	$w_func();
+} else {
+	main_init();
+}
+
+====================================
+
+
+function button_name($button_label) {
+
+        $button_list = array(
+
+                                  "Start"               => "Track In"
+                                , "Menu"                => "Menu"
+                                , "Check"               => "Check"
+                                , "Confirm"             => "Confirmation"
+                                , "Execute"             => "Execute"
+                                , "Return"              => "Back"
+                                , "Erase"               => "Clear"
+                                , "Cancel"              => "Cancel"
+
+====================================
+
+EQU_CD: EQ21S00001  	
+INPUT_QTY: 1600	
+GOOD_QTY: 1600	
+REJECT_QTY: 0	
+LOT_ID: LT21S173280001 
+STEP_CLASS: E921S021
+
+
+==================================
+
+Comment:
+//$gw_scr['s_lot_no_str']	= $w_lot_bas[LOT_NO_STR];	//拡散ロット番号

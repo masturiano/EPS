@@ -1,0 +1,10 @@
+Sample: Lot ID
+
+select ll.equ_cd, ll.chp_qty input_qty, ll.chp_qty_t good_qty, (ll.chp_qty - ll.chp_qty_t) reject_qty, ll.lot_id lot_id, sm.stp_cls_2 step_class 
+from lot_log ll join stp_mst sm on sm.del_flg = 0 
+and sm.stp_cls_2 = 'E931S091' and sm.stp_cd = ll.stp_cd where ll.del_flg=0 and ll.lot_id='LT31S145190046' and ll.verb='IOOT';
+
+select ll.equ_cd, ll.chp_qty input_qty, ll.chp_qty_t good_qty, (ll.chp_qty - ll.chp_qty_t) reject_qty, ll.lot_id lot_id, sm.stp_cls_2 step_class 
+from lot_log ll join stp_mst sm on sm.del_flg = 0 
+and sm.stp_cls_2 = 'E921S021' and sm.stp_cd = ll.stp_cd 
+where ll.del_flg=0 and ll.lot_id='LT21S174180001' and ll.verb='IOOT';

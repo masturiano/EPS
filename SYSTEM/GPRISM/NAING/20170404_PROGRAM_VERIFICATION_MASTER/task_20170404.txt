@@ -1,0 +1,138 @@
+http://10.81.162.193/Gprism/Menu/cgi-bin/PSSEM09000010.php?g_mode=3&g_CharSet=x-euc-jp&g_lang_path=/Lang/en&g_lang=EN&user=MASEMC30385&s_renzheng_t=0ced925e2b6582b806fa20ff9e0be1e27e055237a6fb9b650131772a513312d8_066bc15f698a23e7
+
+
+=======
+Program
+=======
+
+Wafer receive (LD Jig and LDHU-LD)-Auto
+
+Master Management for PIDSCSG -> CCD -> [CCD] Program Verification Master
+
+vim cgi-bin/PS00S01002000.php
+vim cgi-bin/PS00S01001000.php
+
+File to be edit:
+cgi-bin/PS00S01002000.php_20170404
+Scr/PS00S01002000S.php
+Lang/en/PS00S01002000M.php
+
+
+=====
+Query
+=====
+
+select * from stp_mst where del_flg=0 and stp_nm_fll like '%F0%TEST%'
+
+select * from stp_mst where del_flg=0 and stp_nm_fll like '%F0%TEST%'
+
+"SELECT STP_CLS_1, STP_CLS_2, STP_CLS_3, STP_CLS_4, STP_CLS_5 FROM STP_MST "
+ . "WHERE STP_CD = '$w_stp_cd' AND DEL_FLG = '0'
+
+
+====
+CODE
+====
+vim cgi-bin/PS00S01002000.php
+
+line 1288
+
+
+vim cgi-bin/PS00S01001000.php
+
+line 617
+
+$w_rtn = xgt_stp_cls($w_stp_cd, $w_stpcls2, $dmy);
+        if($w_rtn != 0){
+                $g_err_lv = 0;
+                $g_msg = xpt_err_msg($g_msg, $w_stp_cd, __LINE__);
+                return 4000;
+}
+
+
+========================================
+comment on vim cgi-bin/PS00S01002000.php
+
+# F0 Test
+
+Remove after
+========================================
+
+
+
+
+check_input
+
+ select * from RCP_ORG_MST
+
+$w_stp_cd
+
+ delete_rcp_org_mst
+
+
+function
+
+2169 function chk_modify($w_row = null)
+2217  function chk_upd_lev($w_row = null, $w_mdf_flg = 1, $w_is_delete = false) {
+
+
+$gw_scr['s_stp_cd']
+
+require_once ($g_func_dir . "/xgt_stp_cls.php");                        # ステップ分類取得
+
+
+
+
+
+
+
+
+
+if(empty($gw_scr['s_list_prd_nm'][$i]) || empty($gw_scr['s_list_ok12'][$i]) && ( $w_stpcls2 == "E921S019" || $w_stpcls2 == "E921S063")){
+
+
+ if($w_stpcls2 == "E921S019" || $w_stpcls2 == "E921S063"){
+
+
+
+
+echo $gw_scr['s_list_ok12'][$i].' - '.$gw_scr['s_list_ok12'][$i].' - '.$gw_scr['s_list_ok12'][$i];
+echo "<br/>";
+echo $gw_scr['s_list_prd_nm'][$i];
+echo "<br/>";
+echo count($gw_scr['s_list_prd_nm'][]);
+echo "<br/>";
+
+============================
+
+
+ if($w_stpcls2 == "E921S019" || $w_stpcls2 == "E921S063"){
+                                 if(empty($gw_scr['s_list_ok12'][$i]) || empty($gw_scr['s_list_prd_nm'][$i])){
+                                         list($g_msg, $g_err_lv) = msg("err_Inp_Tag");
+                                         $w_tg = get_tg(itm("OK12"), $i . itm("Line"));
+                                         $g_msg = xpt_err_msg($g_msg, $w_tg, __LINE__);
+                                         return 4000;
+                                 }
+                         }
+                         else{
+                                 if(empty($gw_scr['s_list_ok12'][$i]) || empty($gw_scr['s_list_prd_nm'][$i])){
+                                         if (strtoupper($gw_scr['s_list_ok12'][$i])!="OK1" && strtoupper($gw_scr['s_list_ok12'][$i])!="OK2" && strtoupper($gw_scr['s_list_ok12'][$i])!="BOTH") {
+                                                 list($g_msg, $g_err_lv) = msg("err_Inp_Tag");
+                                                 $w_tg = get_tg(itm("OK12"), $i . itm("Line"));
+                                                 $g_msg = xpt_err_msg($g_msg, $w_tg, __LINE__);
+                                                 return 4000;
+                                         }
+                                 }
+                         }
+
+
+
+
+if(!empty($gw_scr['s_list_ok12'][$i])){
+                                        if (strtoupper($gw_scr['s_list_ok12'][$i])!="OK1" && strtoupper($gw_scr['s_list_ok12'][$i])!="OK2" && strtoupper($gw_scr['s_list_ok12'][$i])!="BOTH") {
+                                                list($g_msg, $g_err_lv) = msg("err_Inp_Tag");
+                                                $w_tg = get_tg(itm("OK12"), $i . itm("Line"));
+                                                $g_msg = xpt_err_msg($g_msg, $w_tg, __LINE__);
+                                                return 4000;
+                                        }
+                                }

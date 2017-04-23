@@ -1,0 +1,50 @@
+function xgt_stp_cls ($w_stp_cd, &$r_stp_cls_2, &$r_stp_cls_5) {
+
+        # グローバル宣言
+        global $g_msg;              # ユーザーメッセージ
+#       global $g_stp_cls_1;            # ステップクラス（１）
+//      global $g_stp_cls_2;            # ステップクラス（２）
+#       global $g_stp_cls_3;            # ステップクラス（３）
+#       global $g_stp_cls_4;            # ステップクラス（４）
+//      global $g_stp_cls_5;            # ステップクラス（５）
+
+        #-------------------------------------------
+        # ステップマスターを検索する。
+        #-------------------------------------------
+
+        # ＳＱＬの組立をする。
+        $w_sql = "SELECT STP_CLS_1, STP_CLS_2, STP_CLS_3, STP_CLS_4, STP_CLS_5 FROM STP_MST "
+               . "WHERE STP_CD = '$w_stp_cd' AND DEL_FLG = '0'";
+
+        # ＳＱＬの実行準備をする。
+        $w_stmt = db_res_set ($w_sql);
+
+        # ＳＱＬを実行する。
+        $w_rtn  = db_do ($w_stmt);
+        if ($w_rtn != 0) {
+                $g_msg = xgt_stp_cls_msg ("error_1");
+                return $w_rtn;
+        }
+
+        # クエリー結果から次のレコード取得し連想配列に返す。
+        $w_row = db_fetch_row ($w_stmt);
+        if (!$w_row) {
+
+                # リソースを解放する
+                db_res_free ($w_stmt);
+                $g_msg = xgt_stp_cls_msg ("error_2");
+
+                return 4000;
+        } else {
+#               $g_stp_cls_1 = $w_row['STP_CLS_1'];
+                $r_stp_cls_2 = $w_row['STP_CLS_2'];
+#               $g_stp_cls_3 = $w_row['STP_CLS_3'];
+#               $g_stp_cls_4 = $w_row['STP_CLS_4'];
+                $r_stp_cls_5 = $w_row['STP_CLS_5'];
+        }
+
+        # リソースを解放する
+        db_res_free ($w_stmt);
+
+        return 0;
+}

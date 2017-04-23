@@ -1,0 +1,66 @@
+$gw_scr['s_list_prd_nm'] = rank type
+$gw_scr['s_list_ok12'] = ok1/ok2/both
+
+
+
+
+ if (strtoupper($gw_scr['s_list_ok12'][$i])!="OK1" && strtoupper($gw_scr['s_list_ok12'][$i])!="OK2" && strtoupper($gw_scr['s_list_ok12'][$i])!="BOTH") {
+                                list($g_msg, $g_err_lv) = msg("err_Inp_Tag");
+                                $w_tg = get_tg(itm("OK12"), $i . itm("Line"));
+                                $g_msg = xpt_err_msg($g_msg, $w_tg, __LINE__);
+                                return 4000;
+                        }
+
+                        $w_rtn = xgt_stp_cls($gw_scr['s_stp_cd'], $w_stpcls2, $dmy);
+                        if($w_rtn != 0){
+                                $g_err_lv = 0;
+                                $g_msg = xpt_err_msg($g_msg, $gw_scr['s_stp_cd'], __LINE__);
+                                return 4000;
+                        }
+
+                        if($w_stpcls2 == "E921S019" || $w_stpcls2 == "E921S063"){
+                                if(!empty($gw_scr['s_list_ok12'][$i])){
+                                        if (strtoupper($gw_scr['s_list_ok12'][$i])!="OK1" && strtoupper($gw_scr['s_list_ok12'][$i])!="OK2" && strtoupper($gw_scr['s_list_ok12'][$i])!="BOTH") {
+                                                list($g_msg, $g_err_lv) = msg("err_Inp_Tag");
+                                                $w_tg = get_tg(itm("OK12"), $i . itm("Line"));
+                                                $g_msg = xpt_err_msg($g_msg, $w_tg, __LINE__);
+                                                return 4000;
+                                        }
+                                }
+                                else{
+                                        if(empty($gw_scr['s_list_ok12'][$i]) || empty($gw_scr['s_list_prd_nm'][$i])){
+                                                list($g_msg, $g_err_lv) = msg("err_Inp_Tag");
+                                                $w_tg = get_tg(itm("OK12"), $i . itm("Line"));
+                                                $g_msg = xpt_err_msg($g_msg, $w_tg, __LINE__);
+                                                return 4000;
+                                        }
+                                }
+                        }
+
+
+FINAL OKAY
+
+if(!empty($gw_scr['s_list_ok12'][$i])){
+                                if (strtoupper($gw_scr['s_list_ok12'][$i])!="OK1" && strtoupper($gw_scr['s_list_ok12'][$i])!="OK2" && strtoupper($gw_scr['s_list_ok12'][$i])!="BOTH") {
+                                        list($g_msg, $g_err_lv) = msg("err_Inp_Tag");
+                                        $w_tg = get_tg(itm("OK12"), $i . itm("Line"));
+                                        $g_msg = xpt_err_msg($g_msg, $w_tg, __LINE__);
+                                        return 4000;
+                                }
+                        }
+
+                        $w_rtn = xgt_stp_cls($gw_scr['s_stp_cd'], $w_stpcls2, $dmy);
+                        if($w_rtn != 0){
+                                $g_err_lv = 0;
+                                $g_msg = xpt_err_msg($g_msg, $gw_scr['s_stp_cd'], __LINE__);
+                                return 4000;
+                        }
+
+                        if($w_stpcls2 == "E921S019" || $w_stpcls2 == "E921S063"){
+                                if(empty($gw_scr['s_list_ok12'][$i]) || empty($gw_scr['s_list_prd_nm'][$i])){
+                                        list($g_msg, $g_err_lv) = msg("err_Inp_Tag");
+                                        $w_tg = get_tg(itm("OK12"), $i . itm("Line"));
+                                        $g_msg = xpt_err_msg($g_msg, $w_tg, __LINE__);
+                                        return 4000;
+                                }
+                        }

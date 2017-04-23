@@ -1,0 +1,11 @@
+1.if non- (CCD) F0 Test, no validation.
+	a. ST21S0000019 - E921S019
+	b. ST21S0000063 - E921S063
+2. use STP_CLS_2 column to check.
+3. Program logic
+	- get the step class based on input step code (xgt_stp_cls.php)
+	- if step class is not F0 test, no need to show board pin lens pin validation.
+	- if step class is F0 Test, show the validation.
+
+
+ST21S0000065 TEST ONLY PANG MARAMIHAN

@@ -1,0 +1,16 @@
+setenv ORACLE_BASE /opt/oracle
+#setenv ORACLE_HOME $ORACLE_BASE/product/11.2.0/Db_1
+setenv ORACLE_HOME /usr/lib/oracle/11.2.0.1/client
+setenv ORACLE_SID GPRISM
+setenv ORACLE_PATH $PATH\:$ORACLE_HOME/bin
+setenv LD_LIBRARY_PATH $ORACLE_HOME/lib
+setenv PATH $ORACLE_HOME/bin\:$PATH
+#export NLS_LANG=Japanese_Japan.JA16EUC
+#export NLS_LANG="Simplified Chinese_China.ZHS16CGB231280"
+setenv NLS_LANG "American_America.WE8ISO8859P1"
+#setenv LD_LIBRARY_PATH $LD_LIBRARY_PATH\:/usr/lib/oracle/10.1.0.4/client/lib
+setenv LD_LIBRARY_PATH /usr/lib/oracle/11.2.0.1/client/lib
+#export LANG=zh_CN
+setenv LANG C
+setenv TNS_ADMIN /etc/oracle
+setenv GPRISM_PERL_DB ORACLE

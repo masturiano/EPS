@@ -1,0 +1,21 @@
+Program Path
+
+/opt/htdocs/backfill/application/controllers/interface/Intonesapwipreaders.php
+
+Program Filename: Intonesapwipreaders.php
+
+============================================================
+Run the CSH
+
+/opt/htdocs/backfill/application/controllers/interface/intonesapwipreaders.csh
+
+============================================================
+
+
+
+cd /opt/htdocs/interfaces/receive/wip_onesap
+
+cd /opt/htdocs/interfaces/receive/wip_onesap
+
+
+/opt/htdocs/backfill/application/controllers/interface

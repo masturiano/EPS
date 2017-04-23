@@ -1,0 +1,67 @@
+Filename: PS00S01002500.php
+Comment: Line 216
+Reminder: Comment out after
+
+#------------------------------------------------------------------
+# get default printer
+#------------------------------------------------------------------
+$w_rtn = xgt_lp2(2, $w_lbl_cd, $w_lbl_nm, $_, $_);
+if($w_rtn != 0){
+	$gw_scr['s_prnt_lv'] = 0;
+	$gw_scr['s_prnt_msg'] = xpt_err_msg($g_msg, "", __LINE__);
+
+	$g_msg    = "";
+	$g_err_lv = "";
+}
+
+============================================================================================================================================
+
+Use constant define array
+
+#------------------------------------------------------------------
+# Unallowed E9
+#------------------------------------------------------------------
+define("UNALLOWED_E9_LIST", serialize(array(
+	"E911S680",  #PACKING BGA
+	"E949S250", #PACKING HLD
+	"E949S140", #PACKING LD
+	"E931S035", #PACKING IPD
+	"E931S072", #PACKING MAT
+	"E931S123", #PACKING QFN
+	"E931S157", #PACKING SOB
+	"E941S031", #PACKING TR
+	"E931S233", #PACKING QFP
+)));
+$my_fruits = unserialize(E9_NG_STEPS);
+var_dump($my_fruits);
+
+============================================================================================================================================
+
+Existing with additional after E911S710 step class
+
+#------------------------------------------------------------------
+# unallowed step
+#------------------------------------------------------------------
+define("E9_UNALW",serialize(array(
+	"E911S140",
+	"E911S150",
+	"E911S140",
+	"E911S150",
+	"E911S020",
+	"E911S080",
+	"E911S090",
+	"E911S110",
+	"E911S720", # POST ROM ASSIGNMENT
+	"E911S720", #POST ROM ASSIGNMENT 2	
+	"E911S710",
+	"E921S002", # ST21S0000002 (CCD) WAFER RECEIVING
+	"E921S007", # ST21S0000007 (CCD) PKG RECEIVING
+	"E921S008", # ST21S0000008 (CCD) LASER MARK
+	"E921S010", # ST21S0000010 (CCD) ASSEMBLY CLEAN LINE
+	"E921S011", # ST21S0000011 (CCD) ASSEMBLY STREAM LINE
+	"E921S013", # ST21S0000013 (CCD) SEMIFG RECEIVING
+	"E921S052", # ST21S0000052 (BCCD) WAFER RECEIVING
+	"E921S059", # ST21S0000059 (BCCD) PKG RECEIVING
+	"E921S060", # ST21S0000060 (BCCD) LASER MARK
+	"E921S062"  # ST21S0000062 (BCCD) ASSEMBLY CLEAN LINE
+)));

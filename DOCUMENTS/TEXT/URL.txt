@@ -1,0 +1,55 @@
+============================================
+UMSS - UTAC MANUFACTURING SERVICES SINGAPORE
+============================================
+
+URL: http://sg2srwaslive.sg.utacgroup.com:9083/Portal/
+
+======================
+GPRISM WEB APPLICATION
+======================
+
+S:\PSCAServices\MISservices\Gprism\System Links
+
+DEV APP URL: http://10.81.162.193/Gprism/login.php
+HOSTNAME: PSCSGGPAPP3 - ACCESS OK
+
+QA APP URL: http://10.81.162.194/Gprism/login.php
+HOSTNAME: PSCSGGPAPP4 - ACCESS OK
+
+LIVE APP URL: http://10.81.162.207/Gprism/login.php
+HOSTNAME: PSCSGGPAPP1 - ACCESS OK
+
+LOCAL NAING: http://10.81.162.207/Gprism/login.php
+
+===============
+GPRISM DATABASE
+===============
+
+DEV DB TEST URL: http://10.81.162.193/Gprism/tools/sql_test
+QA DB TEST URL: http://10.81.162.194/Gprism/tools/sql_test
+LIVE DB TEST URL: http://10.81.162.207/Gprism/tools/sql_test
+
+=======================
+GPRISM EQUIPMENT SEARCH
+=======================
+
+Dev URL : http://10.81.162.193/Gprism/tools/equ_srch
+QA URL: http://10.81.162.194/Gprism/tools/sql_test
+LIVE URL: http://10.81.162.207/Gprism/tools/equ_srch
+
+===============
+BACKFILL (iMES)
+===============
+
+DEV URL: http://10.100.246.88/backfill/index.php/login
+HOSTNAME: SG2SRBFLAP02
+
+Username & Password: backfill
+
+LIVE URL: http://10.100.246.89/backfill/index.php/login
+HOSTNAME: SG2SRBFLAP02
+
+======OTHERS	 
+======
+
+STOCKTAKE URL: http://pscsggpapp3.mscs.intra/Stocktake2/login.phpANAPLAN: http://pscsggpapp3.mscs.intra/anaplan/SUPPORT URL: http://pscsggpapp3.mscs.intra/gprism-support/

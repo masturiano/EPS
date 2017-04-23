@@ -1,0 +1,49 @@
+=======
+Windows
+=======
+ID: MydelAst
+PASSWORD: Password1
+
+===========
+GPRISM LIVE
+===========
+ID: MASEMC30385
+PASSWORD: C30385
+
+==========
+GPRISM DEV
+==========
+ID: MASEMC30385
+PASSWORD: C30385
+
+=========
+GPRISM QA
+=========
+ID: MASEMC30385
+PASSWORD: C30385
+
+====
+iMES
+====
+ID: 61030385
+PASSWORD: 61030385
+
+==============
+GPRISM SERVERS
+==============
+
+1st login,you are forced to change the password
+
+ID: pinC30385
+PASSWORD: Pass1234
+NEW PASSWORD: passC30385
+
+APP1/APP2/APP3/APP4
+
+=====
+EMAIL
+=====
+
+Mydel_Asturiano@utacgroup.com
+
+==================================================================

@@ -1,0 +1,23 @@
+:set number
+:set nonumber
+:line number - jump to line number
+
+escape then letter u for undo
+
+
+x   - delete current character
+dw  - delete current word
+dd  - delete current line
+5dd - delete five lines
+
+d$  - delete to end of line
+d0  - delete to beginning of line
+
+:1,.d
+delete to beginning of file
+
+:.,$d
+delete to end of file
+
+% = Find the partner bracket
+

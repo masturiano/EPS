@@ -1,0 +1,27 @@
+add the type
+
+$GROUP[] = array(
+    "cel"           => "col",
+    "matrix"        => "9,1",
+  "s_check" => array(
+    "matrix" => "5,1",
+    #"type" => "button",
+    "name" => "s_check",
+    "value" => button_name("Check"),
+    #"class" => "noborder",
+   /* "disabled" => array(
+        1 => "",
+        2 => "",
+        3 => "true",
+        4 => "true",
+        ),*/
+     "type"                  => array
+                (
+                        1 => "none",
+                        2 => "button",
+                        3 => "none",
+                        4 => "none",
+                ),
+
+    "onclick" => "jgt_page_action('CHECK', '', 1)"
+    ),

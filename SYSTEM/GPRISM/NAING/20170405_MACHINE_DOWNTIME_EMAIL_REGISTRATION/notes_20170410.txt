@@ -1,0 +1,27 @@
+get_division_cd
+
+line 229 comment out
+
+
+Reference ng row:
+s_list_pgm_id = row
+s_redisp = reload button
+s_lst_lot_id = Row id
+s_inp_row
+
+
+
+Machine downtime:
+s_inp_row = No of lots
+s_redisp_2 = Reload button
+s_list_pgm_id = Row id
+
+
+Query:
+
+select * 
+from par_mst 
+where del_flg=0 
+and par_cls_cd='P000S016'
+and par_id = 'LD_24HR'
+order by rdg_cd

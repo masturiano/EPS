@@ -1,0 +1,25 @@
+http://stackoverflow.com/questions/38917140/refresh-parent-page-on-close-of-pop-up-window
+
+----------------------------
+
+<a href="index.php?id=1" onclick="window.close();window.opener.location.reload();" title="pull data"><?=$row['id'];?>
+					</a>
+
+
+----------------------------
+
+parent.html
+
+<input type="text" id="logo1" value="VALUE-SHOULD-BE-INSERTED-HERE" />
+<script>window.open('child.html');</script>
+
+child.html
+
+<button id="btn">Click me</button>
+<script>
+btn.addEventListener('click', function () {
+    var logo = 'logo' + '1';
+    window.opener.document.getElementById(logo).value = 'something';
+    window.close();
+});
+</script>

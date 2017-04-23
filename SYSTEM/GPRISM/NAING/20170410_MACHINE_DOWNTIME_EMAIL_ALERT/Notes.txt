@@ -1,0 +1,24 @@
+Folder path: 
+/usr/local/httpd2220/htdocs/Test/Monitoring/machinedowntime
+
+program location:
+/usr/local/httpd2220/htdocs/Test/Monitoring/machinedowntime/
+
+program name:
+machine_downtime_alert_monitoring.php
+
+url:
+http://10.81.162.193/Test/Monitoring/machinedowntime/machine_downtime_alert_monitoring_2.php
+
+
+--------------------
+
+select 
+distinct pm.par_txt,pm.par_id 
+from par_mst pm join usr_grp_mst uom on uom.del_flg=0 
+and pm.par_txt='610' || substr(trim(uom.usr_id), 7, 11) 
+join nm_mst grp_nm on grp_nm.del_flg=0 
+and grp_nm.cd = uom.usr_grp_cd and grp_nm.nm_g_sht = 'PRN' 
+where pm.del_flg='0' 
+and pm.par_cls_cd ='P000S016' 
+and pm.par_id in ('LD_24HR ','BGA_8HR ') 

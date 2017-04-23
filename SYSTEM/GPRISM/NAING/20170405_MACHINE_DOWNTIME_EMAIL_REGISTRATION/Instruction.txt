@@ -1,0 +1,135 @@
+80 Master Management for PIDSCSG  => 10 CCD => 51 Machine Downtime Email Registration
+
+Requirement
+1. Disable 'Confirmation' button at Mode 1
+
+2. Énable 'Back' button at Mode 2
+3. Enable 'Back' button at Mode 4
+
+
+
+================================================================
+
+Filename to edit:
+
+/opt/PIDSCSG/Gprism/Lot2
+
+vim Lang/en/PS00S01001960M.php
+vim cgi-bin/PS00S01001960.php
+vim Scr/PS00S01001960S.php
+
+
+================================================================
+
+Edited:
+
+s_check = Confirmation
+236         1 => "",
+to
+236         1 => "true",
+
+S_back
+266         2 => "true",
+to
+266         2 => "",
+
+134        "disabled"       => array(1=>"", "", "true", "true", "true")
+TO
+134        "disabled"       => array(1=>"", "", "true", "true", "true")
+
+
+s_sub = Retrieval button
+
+
+
+jgt_page_action
+
+
+/opt/PIDSCSG/Gprism/JavaScript
+
+$g_js_o = array(
+ "jgt_return.js",
+ "jgt_confirm.js",
+ "jgt_prev_page.js"
+ );
+
+
+grep -rnw '/opt/PIDSCSG/Gprism/Lot2/' -e "Test1"
+
+s_check
+
+
+
+if($gw_scr['s_act']=="BACK"){
+        PS00S01001960_md1();
+        # scr_mode_chg(1);
+}
+else {
+        scr_mode_chg(3);
+}
+
+
+============================================
+
+
+
+mode 3
+
+/*
+if($gw_scr['s_act']=="BACK"){
+
+        PS00S01001960_init_disp("BACK");
+        #scr_mode_chg(0);
+return 0;
+
+}
+*/
+
+if($gw_scr['s_act']=="BACK"){
+        PS00S01001960_md1();
+        # scr_mode_chg(1);
+        echo 'ifffffffffffffffffffff';
+}
+else {
+        scr_mode_chg(3);
+        echo 'elseeeeeeeeeeeeeeeeeee';
+}
+
+
+
+mode 4
+
+function PS00S01001960_md3() {
+
+
+
+
+set_init_list($vals)
+
+ $gw_scr['s_list_pgm_id'] = "";
+
+$gw_scr['s_rdg_cd']==''
+$gw_scr['s_dvsn_cd_opt']==''
+$gw_scr['s_hour_cd']==''
+
+PS00S01001960_init_disp($vals){
+
+
+
+
+if($gw_scr['s_act']=="BACK"){
+                #echo 'ifffffffffffffffffffff';
+                #set_init_list('BACK');
+                #$gw_scr['s_list_pgm_id'] = "";
+                #$gw_scr['s_rdg_cd']=='';
+                #$gw_scr['s_dvsn_cd_opt']=='';
+                #$gw_scr['s_hour_cd']=='';
+                #set_init_list('MD1');
+                PS00S01001960_init_disp("TEST");
+                $gw_scr['s_list_pgm_id'] = "";
+                scr_mode_chg(1);
+        }
+        else {
+        scr_mode_chg(1);
+        #echo 'elseeeeeeeeeeeeeeeeeee';
+}

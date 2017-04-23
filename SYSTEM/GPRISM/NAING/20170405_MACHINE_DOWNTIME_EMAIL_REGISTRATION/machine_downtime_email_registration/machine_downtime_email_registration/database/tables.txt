@@ -1,0 +1,16 @@
+create table fullname(
+id int not null auto_increment,
+firstname varchar(100),
+middlename varchar(100),
+lastname varchar(100),
+primary key(id)
+);
+
+
+alter table fullname add group_code char(1) after id;
+
+insert into fullname(group_code,firstname,middlename,lastname)
+values(1,'MYDEL-AR','ANDALEON','ASTURIANO'),
+(1,'MYDZELL','TAFALLA','ASTURIANO'),
+(2,'JAYZELLE','TAFALLA','ASTURIANO');
+

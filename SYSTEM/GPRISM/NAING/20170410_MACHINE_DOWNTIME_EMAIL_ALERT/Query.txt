@@ -1,0 +1,59 @@
+select distinct
+			em.dvsn_cd,
+			em.rdg_cd,
+			em.equ_cd, 
+			em.equ_nm_fll, 
+			est.equ_st_dvs,
+			to_char( log.down_date, 'YYYY-MM-DD HH24:MI:SS'), 
+			usr.usr_nm_dbc, 
+			to_char( est_eng.crt_dts, 'YYYY-MM-DD HH24:MI:SS'), 
+			usr_eng.usr_nm_dbc eng_usr_nm,
+			nm.nm_fll,
+			esl.cmt,
+			equ_trb.nm_fll equ_trb_nm,
+			equ_trb.nm_g_sht
+		from 
+			equ_mst em
+		join equ_st_tbl est 
+			on est.equ_cd = em.equ_cd and est.equ_st_dvs != 'RY'
+		join (select equ_cd, max(crt_dts) down_date from equ_st_log where del_flg = '0' and verb = 'EQDN' group by equ_cd ) log 
+			on log.equ_cd = em.equ_cd
+		join equ_st_log esl
+			on esl.equ_cd = em.equ_cd and esl.crt_dts = log.down_date
+		join usr_mst usr
+			on usr.del_flg = '0' and usr.usr_id = esl.usr_id_crt
+		left join equ_st_log est_eng
+			on est_eng.del_flg = '0' and est_eng.crt_dts > log.down_date and est_eng.equ_st_dvs_to = 'EN' and est_eng.equ_cd = em.equ_cd
+		left join usr_mst usr_eng
+			on usr_eng.del_flg = '0' and usr_eng.usr_id = est_eng.usr_id_crt
+		join nm_mst nm 
+			on nm.del_flg='0' and nm.cd = em.rdg_cd
+		join nm_mst equ_trb
+			on equ_trb.del_flg='0' and equ_trb.cd = esl.equ_trb_id
+		where 
+			em.del_flg= '0'
+		order by dvsn_cd, rdg_cd
+
+=================
+
+select distinct pm.par_txt,pm.par_id 
+from par_mst pm join usr_grp_mst uom on uom.del_flg=0 
+and pm.par_txt='610' || substr(trim(uom.usr_id), 7, 11) 
+join nm_mst grp_nm on grp_nm.del_flg=0 
+and grp_nm.cd = uom.usr_grp_cd 
+and grp_nm.nm_g_sht = 'PRN' 
+where pm.del_flg='0' 
+and pm.par_cls_cd ='P000S016' 
+and pm.par_id in ('LD_2HR','LD_4HR','LD_6HR','LD_8HR','LD_24HR')
+
+select distinct pm.par_txt,pm.par_id
+from par_mst pm join usr_grp_mst uom on uom.del_flg=0 
+and pm.par_txt='610' || substr(trim(uom.usr_id), 7, 11) 
+join nm_mst grp_nm on grp_nm.del_flg=0 
+and grp_nm.cd = uom.usr_grp_cd 
+and grp_nm.nm_g_sht in ('EQP') 
+where pm.del_flg='0' 
+and pm.par_cls_cd ='P000S016' 
+and pm.par_id in ('BGA_2HR','BGA_4HR','BGA_6HR','BGA_8HR','LD_24HR')
+
+select distinct(nm_g_sht) from nm_mst where nm_g_sht = 'PRN' 

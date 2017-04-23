@@ -1,0 +1,43 @@
+SELECT 
+  STP_CLS_1, 
+  STP_CLS_2, 
+  STP_CLS_3, 
+  STP_CLS_4, 
+  STP_CLS_5,
+  STP_CD
+FROM 
+  STP_MST
+WHERE 
+  --STP_CD = 'CT00S0000266' 
+  STP_CLS_2 = 'E931S091'
+  AND DEL_FLG = '0';
+  
+  SELECT
+	*
+FROM
+	LOT_INF_TBL
+WHERE
+	LOT_ID = 'LT31S145190036'
+  and DEL_FLG = 0;
+  
+  
+SELECT 
+  *
+FROM 
+  STP_MST
+WHERE 
+  rownum = 1;
+  STP_CD = 'CT00S0000266' 
+  --STP_CLS_2 = 'E931S091';
+  AND DEL_FLG = '0';
+  
+  
+  SELECT
+        *
+FROM
+        PRD_ORG_MST
+WHERE rownum < 10;
+
+
+SELECT * FROM LOT_BAS_TBL WHERE rownum < 10; LOT_ID = 'LT49S127180032';
+ST49S0000014

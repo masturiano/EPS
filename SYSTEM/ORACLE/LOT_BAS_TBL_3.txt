@@ -1,0 +1,78 @@
+select 
+  ll.equ_cd, ll.chp_qty input_qty, ll.chp_qty_t good_qty,
+  (ll.chp_qty - ll.chp_qty_t) reject_qty,
+  ll.lot_id,sm.stp_cls_2
+from lot_log ll
+join stp_mst sm
+on sm.del_flg = 0
+--and ll.equ_cd = 'EQ21S00001'
+--and sm.stp_cls_2 = 'E921S021'
+--and sm.stp_cls_2 = 'E931S091'
+and sm.stp_cd = ll.stp_cd
+and ll.del_flg=0
+and ll.lot_id='LT21S174180002'
+and ll.verb='IOOT'
+and rownum < 10;
+
+select 
+  ll.lot_id,sm.*
+from lot_log ll
+join stp_mst sm
+on sm.del_flg = 0
+--and ll.equ_cd = 'EQ21S00001'
+and sm.stp_cls_2 = 'E931S091'
+and sm.stp_cd = ll.stp_cd
+where ll.del_flg=0
+--and ll.lot_id='LT31S145190036'
+and ll.verb='IOOT';
+
+SELECT STP_CD, STP_CLS_1, STP_CLS_2, STP_CLS_3, STP_CLS_4, STP_CLS_5 
+FROM STP_MST
+WHERE 
+--STP_CD = '$w_stp_cd' 
+DEL_FLG = '0'
+and stp_cls_2 = 'E921S021'
+and rownum < 20;
+
+
+
+SELECT *
+FROM STP_MST
+WHERE 
+--STP_CD = '$w_stp_cd' 
+STP_CD = 'ST31S0000091' 
+and DEL_FLG = '0';
+--and stp_cls_2 = 'E921S021'
+and rownum < 20;
+
+
+
+select ll.equ_cd, ll.chp_qty input_qty, ll.chp_qty_t good_qty		, ll.lot_id	,sm.stp_cls_2, ll.verb		,ll.stp_cd,sm.stp_cd			
+from lot_log ll								
+join stp_mst sm 								
+	on sm.del_flg = 0							
+	and sm.stp_cls_2 = 'E921S021'							
+	and sm.stp_cd = ll.stp_cd							
+where ll.del_flg=0;								
+--and ll.lot_id='<lot id>' 								
+and ll.verb='IOOT';								
+
+SELECT * FROM LOT_BAS_TBL WHERE LOT_ID = 'LT21S173280001';
+
+select * from lot_log where lot_id= 'LT21S173280001' and verb='IOMV' and del_flg='0';
+
+SELECT * FROM LOT_INF_TBL 
+WHERE LOT_ID = 'LT21S173280001' 
+AND CRT_VERB = 'IOOT'
+AND DEL_FLG = '0';
+
+SELECT * FROM LOT_INF_MST
+WHERE LOT_ID = 'LT21S173280001' 
+AND CRT_VERB = 'IOOT'
+AND DEL_FLG = '0';
+
+SELECT * FROM LOT_BAS_TBL where rownum < 5;
+
+SELECT * FROM stp_mst
+WHERE STP_CD = 'ST51S0000034'
+AND DEL_FLG = 0;

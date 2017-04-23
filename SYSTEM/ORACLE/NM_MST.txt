@@ -1,0 +1,10 @@
+SELECT 
+  TAG,
+	CD,	
+	NM_FLL AS NM
+FROM 
+	NM_MST 
+WHERE 
+	TAG = 'RD' AND 
+	DEL_FLG = '0' AND
+  CD = 'RD00SC1';

@@ -1,0 +1,29 @@
+select distinct(nm.nm_g_sht)
+from usr_mst um 
+join usr_grp_mst ugm on ugm.del_flg=0 and ugm.usr_id=um.usr_id
+join nm_mst nm on nm.del_flg=0 and nm.cd=usr_grp_cd
+where nm.nm_g_sht in ('EQP','TNM','PRN');
+
+select * 
+from par_mst 
+where DEL_FLG=0 
+and PAR_CLS_CD='P000S016' 
+and PAR_ID = 'LD_24HR'
+and PAR_TXT = '61030059'
+order by RDG_CD;
+
+select distinct(nm.nm_g_sht) as DEPARTMENT
+from usr_mst um 
+join usr_grp_mst ugm on ugm.del_flg=0 and ugm.usr_id=um.usr_id
+join nm_mst nm on nm.del_flg=0 and nm.cd=usr_grp_cd
+where um.del_flg='0' 
+and  '610' || substr(trim(um.usr_id),7,5) = '61030059'
+and nm.nm_g_sht in ('EQP','PRN','TNM')
+and rownum = '1'
+order by nm.nm_g_sht asc;
+
+select distinct(nm.nm_g_sht),substr(trim(um.usr_id),7,5)
+from usr_mst um 
+join usr_grp_mst ugm on ugm.del_flg=0 and ugm.usr_id=um.usr_id
+join nm_mst nm on nm.del_flg=0 and nm.cd=usr_grp_cd
+where nm.nm_g_sht in ('EQP','TNM','PRN');

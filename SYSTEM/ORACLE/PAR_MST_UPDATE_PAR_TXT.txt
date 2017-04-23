@@ -1,0 +1,21 @@
+-- to 0
+update par_mst 
+set DEL_FLG=0 
+where DEL_FLG=1 
+and PAR_CLS_CD='P000S016' 
+and PAR_ID = 'LD_24HR'
+and PAR_TXT in ('61030059','61000485');
+-- to 1
+update par_mst 
+set DEL_FLG=1 
+where DEL_FLG=0 
+and PAR_CLS_CD='P000S016' 
+and PAR_ID = 'LD_24HR'
+and PAR_TXT = '61030383';
+
+select * 
+from par_mst 
+where DEL_FLG=0 
+and PAR_CLS_CD='P000S016' 
+and PAR_ID = 'LD_24HR'
+and PAR_TXT in ('61030059','61000485');

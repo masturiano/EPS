@@ -1,0 +1,6 @@
+delete
+from par_mst 
+where DEL_FLG=1
+and PAR_CLS_CD='P000S016' 
+and PAR_ID = 'LD_24HR'
+and PAR_TXT = '61030059';

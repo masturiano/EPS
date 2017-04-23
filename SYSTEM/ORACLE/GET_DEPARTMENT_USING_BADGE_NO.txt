@@ -1,0 +1,13 @@
+select distinct(nm.nm_g_sht),substr(trim(um.usr_id),7,5)
+from usr_mst um 
+join usr_grp_mst ugm on ugm.del_flg=0 and ugm.usr_id=um.usr_id
+join nm_mst nm on nm.del_flg=0 and nm.cd=usr_grp_cd
+where nm.nm_g_sht = 'PRN'
+
+
+select um.* from usr_mst um 
+join usr_grp_mst ugm on ugm.del_flg=0 and ugm.usr_id=um.usr_id
+join nm_mst nm on nm.del_flg=0 and nm.cd=usr_grp_cd
+where um.usr_id = 'MASEMP02803'
+where um.del_flg='0' and  '610' || substr(trim(um.usr_id),7,5)= '61030059'
+

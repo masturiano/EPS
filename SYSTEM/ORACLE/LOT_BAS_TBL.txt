@@ -1,0 +1,18 @@
+select ll.equ_cd, ll.chp_qty input_qty, ll.chp_qty_t good_qty, (ll.chp_qty - ll.chp_qty_t) reject_qty, ll.lot_id lot_id, sm.stp_cls_2 step_class 
+from lot_log ll join stp_mst sm on sm.del_flg = 0 
+and sm.stp_cls_2 = 'E921S021' and sm.stp_cd = ll.stp_cd 
+where ll.del_flg=0 and ll.lot_id='LT21S174180002' and ll.verb='IOOT';
+
+
+LT31S145190036
+
+select * from lot_bas_tbl where rownum < 10;
+
+select SEQ_NO_RT,flw.SRIS_DVS_1 from prd_org_mst org LEFT OUTER JOIN prc_flw_mst flw ON
+(org.prc_cd = flw.prc_cd and org.stp_cd=flw.stp_cd and flw.del_flg = 0 ) where 
+--org.rt_cd='{$w_rt_cd}'
+--and 
+org.del_flg = '0' and org.stp_cd='ST49S0000014' order by SEQ_NO_RT;
+
+
+select stp_nm_fll from stp_mst where stp_cls_2 = 'E951S034';

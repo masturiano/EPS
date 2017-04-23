@@ -1,0 +1,1 @@
+select * from par_mst where DEL_FLG=0 and usr_id_crt='MASEMC30049' and PAR_CLS_CD='P000S016' and DVSN_CD = 'ABSEM49' and PAR_ID = 'LD_24HR' order by RDG_CD

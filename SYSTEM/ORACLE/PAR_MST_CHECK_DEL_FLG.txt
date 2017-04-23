@@ -1,0 +1,20 @@
+select
+*
+from par_mst 
+where DEL_FLG=0 
+and DVSN_CD = 'ABSEM49'
+and PAR_ID = 'LD_24HR'
+order by RDG_CD;
+
+select distinct(nm.nm_g_sht),substr(trim(um.usr_id),7,5)
+from usr_mst um 
+join usr_grp_mst ugm on ugm.del_flg=0 and ugm.usr_id=um.usr_id
+join nm_mst nm on nm.del_flg=0 and nm.cd=usr_grp_cd
+where nm.nm_g_sht = 'PRN';
+
+select * from par_mst where DEL_FLG=0 and PAR_CLS_CD='P000S016' and PAR_ID = 'LD_24HR' order by RDG_CD;
+select * from par_mst where DEL_FLG=0 and PAR_CLS_CD='P000S016' and PAR_ID = 'BGA_4HR' order by RDG_CD;
+
+select * from par_mst where DEL_FLG=0 and PAR_CLS_CD='P000S016' and PAR_ID = 'LD_24HR' and PAR_TXT in ('61030059','61000485') order by RDG_CD;
+select * from par_mst where DEL_FLG=1 and PAR_CLS_CD='P000S016' and PAR_ID = 'LD_24HR' and PAR_TXT in ('61030059','61000485') order by RDG_CD;
+select * from par_mst where DEL_FLG in (0,1) and PAR_CLS_CD='P000S016' and PAR_ID = 'LD_24HR' and PAR_TXT in ('61030059','61000485') order by RDG_CD;

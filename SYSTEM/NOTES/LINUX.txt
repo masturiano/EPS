@@ -1,0 +1,17 @@
+login as: username
+password: password
+
+$ su - gprism
+Password: Gprism
+
+$ unset LANG
+
+---------------------------------
+
+ls | grep 'filename''
+
+---------------------------------
+
+My folder on linux:
+
+/home/pinC30385

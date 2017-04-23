@@ -1,0 +1,49 @@
+# EQP second row above
+		array(
+		    "cel"           => "col",
+		    "matrix"        => "1,2",
+
+			"s_list_eqp_id_".$id  => array(
+				"matrix"	=> "1,1",
+				"width"		=> 120,
+				"type"		=> "text",
+				"name"      => "s_list_eqp_id_".$id,
+				"disabled"	=> array(
+			        1 => "",
+			        2 => "",
+			        3 => "",
+			        4 => "",
+				),
+			    "itm_cls"	=> array(
+			        1 => "",
+			        2 => "",
+			        3 => "",
+			        4 => "dis_text"
+				),
+				"value" 	=> "", 
+				"size"      => 30,
+            	"maxlength"	=> 250,
+			),
+
+			"s_list_eqp_id_2".$id  => array(
+				"matrix"	=> "1,2",
+				"width"		=> 120,
+				"type"		=> "text",
+				"name"      => "s_list_eqp_id_2".$id,
+				"disabled"	=> array(
+			        1 => "",
+			        2 => "",
+			        3 => "",
+			        4 => "",
+				),
+			    "itm_cls"	=> array(
+			        1 => "",
+			        2 => "",
+			        3 => "",
+			        4 => "dis_text"
+				),
+				"value" 	=> "", 
+				"size"      => 30,
+            	"maxlength"	=> 250,
+			),
+		),

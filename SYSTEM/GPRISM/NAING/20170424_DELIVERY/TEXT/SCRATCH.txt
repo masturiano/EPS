@@ -1,0 +1,144 @@
+Filename: cs_xpt_ccd_f0_test.php
+
+function cs_xpt_ccd_f0_test__insert_track_out_date($w_lot_id, $w_track_out_dts, $w_verb, $w_usr_id) {
+        
+}
+
+
+
+grep -rnw '/opt/PIDSCSG/Gprism/Lot2/cgi-bin' -e "cs_xpt_ccd_f0_test__is_expire"
+
+grep -rnw '/opt/PIDSCSG/Gprism/Lot2/cgi-bin' -e "cs_xgt_po_no"
+
+
+cs_xgt_po_no
+
+========================================
+TEST MULTIPLE PO NUMBER
+========================================
+
+select
+  LOT_ID,CTG_DAT_TXT,ctg_cd,count(CTG_DAT_TXT)
+from
+  ctg_tbl
+where
+  del_flg='0'
+  --and lot_id = 'LT11S171090030'
+  --and ctg_cd = 'CT00S0000380'
+  and ctg_dvs_cd = 'CE00S20'
+group by 
+  LOT_ID,CTG_DAT_TXT,ctg_cd
+having
+  count(CTG_DAT_TXT) > 1;
+  and rownum < 10;
+
+
+select
+  LOT_ID,CTG_DAT_TXT,ctg_cd,count(CTG_DAT_TXT)
+from
+  ctg_tbl
+where
+  del_flg='0'
+  --and lot_id = 'LT11S171080012'
+  --and lot_id = 'LT11S16C220105'
+  and ctg_cd = 'CT00S0000385'
+  and ctg_dvs_cd = 'CE00S20'
+group by 
+  LOT_ID,CTG_DAT_TXT,ctg_cd
+having
+  count(CTG_DAT_TXT) > 1;
+  
+define("CT_PO", "CT00S0000379");
+define("CT_PDO", "CT00S0000380");
+
+# MULTIPLE PO
+LT11S171070065
+LT11S171080004
+
+# NOT MULTIPLE PO
+LT11S171060102 = 1000004-4                               
+LT11S171060029 not found appropiate lot
+LT11S171060111 = 1000004-4                               
+LT11S16C290057 = 1000004-3                               
+
+Comment line 541 = uncomment done
+
+$w_rtn = cs_xpt_sni__chk_po($w_sni_pol);
+                        if($w_rtn != 0 ){
+                                $g_err_lv = 0;
+                                list($g_msg, $g_err_lv) = msg("err_Po_Pol_merge");
+                                $g_msg = xpt_err_msg($g_msg, $gw_scr['s_lot_id'][$i], __LINE__);
+                                return 4000;
+                        }
+
+Comment 574 = uncomment done
+
+if(($is_sni_pro=='1') && (count(array_unique($get_all_sni_pro))>'1'))
+        {
+                        unset($is_sni_pro);
+                        unset($get_all_sni_pro);
+                        list($g_msg, $g_err_lv) = msg("err_Sni_pro");
+                        $g_msg = xpt_err_msg($g_msg, "", __LINE__);
+                        return 4000;
+
+        }
+
+Comment 584 = uncomment done
+
+if(($is_sni_pro == "1") && (count(array_unique($w_sni_po_arr)) > 1)) {
+                        unset($is_sni_pro);
+                        unset($w_sni_po_arr);
+                        list($g_msg, $g_err_lv) = msg("err_PO_Not_Same");
+                        $g_msg = xpt_err_msg($g_msg, "", __LINE__);
+                        return 4000;
+        }
+
+=========================================================================================
+# Testing function cs_xgt_po_no
+
+# DELETE MYDEL START
+define("CE_PO", "CE00S20");
+define("CT_PO", "CT00S0000379");
+define("CT_PDO", "CT00S0000380");
+function cs_xgt_po_no($w_lot_id, &$r_dat=array() , $w_mode = 0) 
+{
+        global $g_msg;
+        global $g_err_lv;
+        $r_dat = array();
+
+        $w_ctg_cd = constant("CT_PO");
+        if($w_mode == 1){
+                // enabled to get the Build Order number in case needed
+                $w_ctg_cd = constant("CT_PDO");
+        }
+
+        $w_sql = "
+                select
+                        CTG_DAT_TXT
+                from
+                        ctg_tbl
+                where
+                        del_flg='0'
+                        and lot_id = '{$w_lot_id}'
+                        and ctg_cd = 'CT00S0000385'
+                        and ctg_dvs_cd = '" . constant("CE_PO")  ."'
+        ";
+
+
+
+        $w_stmt = db_res_set($w_sql);
+        $w_rtn = db_do($w_stmt);
+        if($w_rtn != 0){
+                $g_err_lv = 0;
+                $g_msg = "ERROR SELECT MYDEL";
+                $g_msg = xpt_err_msg($g_msg, $w_lot_id, __LINE__);
+                return 4000;
+        }
+        while($w_row = db_fetch_row($w_stmt)){
+                $r_dat[] = trim($w_row['CTG_DAT_TXT']); 
+        }
+        db_res_free($w_stmt);   
+        return 0;
+}
+# DELETE MYDEL END
+=========================================================================================
